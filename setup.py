@@ -11,7 +11,6 @@ setup(name='WstDataManager',
       packages=['WstDataManager', 'WstDataManager.morningstar'],
       install_requires = [
           'lxml',
-          're',
           'datetime',
           'requests'
       ],
