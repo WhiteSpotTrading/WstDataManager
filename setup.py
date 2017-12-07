@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='WstDataManager',
-      version='0.1',
+      version='0.2',
       description='Library of classes for maintaining Data used in WST-trading services',
       url='https://github.com/WhiteSpotTrading/WstDataManager',
       author='CarlWestman',
