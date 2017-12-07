@@ -4,7 +4,6 @@ from lxml import html
 import re
 from datetime import datetime
 import requests
-import pprint
 
 
 

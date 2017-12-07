@@ -27,6 +27,4 @@ six==1.11.0
 Twisted==17.9.0
 urllib3==1.22
 w3lib==1.18.0
-WstDataManager==0.1
 zope.interface==4.4.3
-new_req
