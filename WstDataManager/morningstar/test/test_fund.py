@@ -12,6 +12,6 @@ funds_list = ['0P0000P3Y4','0P0000U46Q',
 """
 funds_list = ['0P00000K48','0P0000U46Q']
 for fund in funds_list:
-    a = Fund(fund)
+    a = Fund(fund, base_only=True)
     pp = pprint.PrettyPrinter(indent=1)
     pp.pprint(a.fund_data)

@@ -8,7 +8,7 @@ accosiated performance issues.
 
 # How it works
 
-## Class: Fund
+## Extracting Fund data
 'Fund' is a base class that compiles a fund data object and stores it
 in a class variable called fund_data.
 
@@ -106,6 +106,8 @@ will return a fund data object for a Equity/Mixed fund
                      'rating_date': datetime.datetime(2017, 10, 31, 0, 0)}}}
 ```
 
+and
+
 ```
 Fund('0P0000U46Q').fund_data
 ```
@@ -168,4 +170,60 @@ will return a fund data object for a Fixed Income fund
                      'sigma': None},
           'rating': {'rating': None,
                      'rating_date': datetime.datetime(2017, 10, 31, 0, 0)}}}
+```
+
+## Extracting only the base data (ie. nav)
+
+Sometimes you might want to only get the latest NAV for a given fund.
+Its allot of overhead to get all additional data and will decrease performance.
+There for there it is possible to instatiate the class with the 'base_only'
+argument set to 'True'
+```
+Fund('0P00000K48', base_only=True).fund_data
+```
+
+Will return the following objects for the two example funds above:
+
+```
+{'base_data': {'currency': 'SEK',
+               'morningstar_category': 'Branschfond, ny teknik',
+               'morningstar_id': '0P00000K48',
+               'name': 'Swedbank Robur Ny Teknik',
+               'nav': 673.68,
+               'nav_date': datetime.datetime(2017, 12, 6, 0, 0)}}
+
+{'base_data': {'currency': 'SEK',
+               'morningstar_category': u'R\xe4nte - \xf6vriga obligationer, h\xf6grisk s\xe4krade',
+               'morningstar_id': '0P0000U46Q',
+               'name': 'Schroder ISF Glbl Hi Yld A SEK Acc',
+               'nav': 1480.2,
+               'nav_date': datetime.datetime(2017, 12, 6, 0, 0)}}
+```
+
+## Searching for funds
+If you dont have the morningstar_id there is a class that allows you to
+search for a fund given a search string.
+
+example:
+
+```
+funds_dict = Search(search_string='PriorNilsson Idea').results
+```
+
+Search results are stored in the 'results' attribute.
+
+```
+{0:
+    {'fund_name': 'PriorNilsson Idea',
+    'morningstar_id': '0P0000A0PO'}
+}
+```
+
+### Filtering
+Currently the only filter implemented is the 'fivestar_only' filter.
+This limits the returned results to funds that have a rating of 5 stars
+in morningsstars ratings.
+
+```
+funds_dict = Search(search_string='PriorNilsson Idea', fivestar_only=True).results
 ```
