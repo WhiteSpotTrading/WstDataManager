@@ -1,4 +1,4 @@
-from morningstar.fund import Fund
+from WstDataManager.morningstar.fund import Fund
 import pprint
 
 funds_list = ['0P0000P3Y4','0P0000U46Q',
