@@ -1,4 +1,4 @@
-from morningstar import Fund_Base
+from . import Fund_Base
 from basedata import BaseData
 from returns import Returns
 from risk import Risk

@@ -1,4 +1,4 @@
-from morningstar.fund import Fund
+from fund import Fund
 from lxml import html
 import requests
 

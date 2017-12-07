@@ -1,4 +1,4 @@
-from morningstar import Fund_Base
+from . import Fund_Base
 from lxml import html
 import requests
 from datetime import datetime
