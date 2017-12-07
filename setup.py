@@ -7,5 +7,5 @@ setup(name='WstDataManager',
       author='CarlWestman',
       author_email='carl.westman@gmail.com',
       license='None',
-      packages=['WstDataManager'],
+      packages=['WstDataManager', 'WstDataManager.morningstar'],
       zip_safe=False)
