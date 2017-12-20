@@ -45,7 +45,3 @@ class Fund(Fund_Base):
             return True
         else:
             return False
-
-f = Fund(morningstar_id='0P00000K48')
-
-print f.fund_data
