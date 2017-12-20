@@ -178,7 +178,7 @@ class EquityPortfolio(Fund_Base):
             'investment_style':self.investment_style,
             'ratios':self.ratios,
             'geographic_allocation':self.geographic_allocation,
-            'industri_allocation':self.industri_allocation
+            'industry_allocation':self.industri_allocation
         }
 
 
