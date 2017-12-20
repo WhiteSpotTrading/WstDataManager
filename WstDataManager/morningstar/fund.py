@@ -11,7 +11,7 @@ class Fund(Fund_Base):
         self.morningstar_id = morningstar_id
         if base_only:
             self.base_data = BaseData(self.morningstar_id).fund_basics
-            self.fund_data = self.make_fund_date(base_only=base_only)
+            self.fund_data = self.make_fund_data(base_only=base_only)
         else:
             self.morningstar_id = morningstar_id
             self.base_data = BaseData(self.morningstar_id).fund_basics
@@ -21,9 +21,13 @@ class Fund(Fund_Base):
                 self.portfolio = Fixed_Income_Portfolio(self.morningstar_id).portfolio_data
             else:
                 self.portfolio = EquityPortfolio(self.morningstar_id).portfolio_data
-            self.fund_data = self.make_fund_date()
+            self.fund_data = self.make_fund_data()
 
-    def make_fund_date(self, base_only=False):
+    def make_fund_data(self, base_only=False):
+        if self.fixed_income():
+            self.base_data['fund_type'] = 'FIXED INCOME'
+        else:
+            self.base_data['fund_type'] = 'EQUITY/MIXED'
         if base_only:
             return {
                 'base_data': self.base_data
@@ -42,5 +46,6 @@ class Fund(Fund_Base):
         else:
             return False
 
+f = Fund(morningstar_id='0P00000K48')
 
-
+print f.make_fund_data()
