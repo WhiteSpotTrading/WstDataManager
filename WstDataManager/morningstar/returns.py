@@ -1,4 +1,4 @@
-from . import Fund_Base
+from WstDataManager.morningstar import Fund_Base
 from lxml import html
 import requests
 

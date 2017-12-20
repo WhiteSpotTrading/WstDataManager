@@ -1,5 +1,5 @@
 # This Python file uses the following encoding: utf-8
-from . import Fund_Base
+from WstDataManager.morningstar import Fund_Base
 from lxml import html
 import re
 from datetime import datetime
